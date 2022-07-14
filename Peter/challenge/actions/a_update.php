@@ -12,9 +12,9 @@ if ($_POST) {
     $picture = file_upload($_FILES['picture']);//file_upload() called  
     if($picture->error===0){
         ($_POST["picture"]=="product.png")?: unlink("../pictures/$_POST[picture]");           
-        $sql = "UPDATE products SET name = '$name', price = $price, picture = '$picture->fileName' WHERE id = {$id}";
+        $sql = "UPDATE dishes SET name = '$name', price = $price, image = '$picture->fileName' WHERE dishID = {$id}";
     }else{
-        $sql = "UPDATE products SET name = '$name', price = $price WHERE id = {$id}";
+        $sql = "UPDATE dishes SET name = '$name', price = $price WHERE dishID = {$id}";
     }    
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";

@@ -3,13 +3,13 @@ require_once 'actions/db_connect.php';
 
 if ($_GET['id']) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM products WHERE id = {$id}";
+    $sql = "SELECT * FROM dishes WHERE dishID= {$id}";
     $result = mysqli_query($connect, $sql);
     if (mysqli_num_rows($result) == 1) {
         $data = mysqli_fetch_assoc($result);
         $name = $data['name'];
         $price = $data['price'];
-        $picture = $data['picture'];
+        $picture = $data['image'];
     } else {
         header("location: error.php");
     }
@@ -54,8 +54,8 @@ if ($_GET['id']) {
                         <td><input class="form-control" type="file" name= "picture" /></td>
                     </tr>
                     <tr>
-                        <input type= "hidden" name= "id" value= "<?php echo $data['id'] ?>" />
-                        <input type= "hidden" name= "picture" value= "<?php echo $data['picture'] ?>" />
+                        <input type= "hidden" name= "id" value= "<?php echo $data['dishID'] ?>" />
+                        <input type= "hidden" name= "picture" value= "<?php echo $data['image'] ?>" />
                         <td><button class="btn btn-success" type= "submit">Save Changes</button></td>
                         <td><a href= "index.php"><button class="btn btn-warning" type="button">Back</button></a></td>
                     </tr>

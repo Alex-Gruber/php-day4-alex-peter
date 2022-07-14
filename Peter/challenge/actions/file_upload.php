@@ -10,7 +10,7 @@ function file_upload($picture) {
     $fileError = $picture["error"];
     $fileSize = $picture["size"];
     $fileExtension = strtolower(pathinfo($fileName,PATHINFO_EXTENSION));    
-    $filesAllowed = ["png", "jpg", "jpeg"];
+    $filesAllowed = ["png", "jpg", "jpeg", "avif"];
     if ($fileError == 4) {       
         $result->ErrorMessage = "No picture was chosen. It can always be updated later.";
         return $result;

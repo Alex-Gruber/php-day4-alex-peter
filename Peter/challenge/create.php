@@ -27,6 +27,10 @@
                         <td><input class='form-control' type="number" name= "price" placeholder="Price" step="any" /></td>
                     </tr>
                     <tr>
+                        <th>Description</th>
+                        <td><input class='form-control' type="text" name="description"  placeholder="Description" /></td>
+                    </tr> 
+                    <tr>
                         <th>Picture</th>
                         <td><input class='form-control' type="file" name="picture" /></td>
                     </tr>

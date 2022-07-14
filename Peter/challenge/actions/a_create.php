@@ -7,9 +7,10 @@ if ($_POST) {
     $price = $_POST['price'];
     $uploadError = '';
     //this function exists in the service file upload.
-    $picture = file_upload($_FILES['picture']);  
+    $picture = file_upload($_FILES['picture']);
+    $description = $_POST['description'];  
    
-    $sql = "INSERT INTO products (name, price, picture) VALUES ('$name', $price,'$picture->fileName')";
+    $sql = "INSERT INTO dishes (name, price, image, description) VALUES ('$name', $price,'$picture->fileName', '$description')";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
@@ -17,6 +18,7 @@ if ($_POST) {
             <table class='table w-50'><tr>
             <td> $name </td>
             <td> $price </td>
+            <td> $description </td>
             </tr></table><hr>";
         $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
     } else {
